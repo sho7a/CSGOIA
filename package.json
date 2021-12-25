@@ -1,0 +1,25 @@
+{
+  "name": "csgoia",
+  "version": "0.0.1",
+  "description": "TODO",
+  "devDependencies": {
+    "web-ext": "^6.6.0"
+  },
+  "scripts": {
+    "dev": "web-ext run --source-dir src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PryosCode/CSGOIA.git"
+  },
+  "keywords": [
+    "csgo",
+    "csgo-inventory"
+  ],
+  "author": "PryosCode",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/PryosCode/CSGOIA/issues"
+  },
+  "homepage": "https://github.com/PryosCode/CSGOIA"
+}

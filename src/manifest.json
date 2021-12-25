@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "CS:GO Inventory Assistant",
-  "version": "0.0.1",
-  "description": "TODO",
+  "version": "0.1.0",
+  "description": "A browser extension to provide a better CS:GO inventory experience.",
   "permissions": [
     "https://api.csgofloat.com/*",
     "https://api.csgoskins.gg/*"

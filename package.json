@@ -1,7 +1,7 @@
 {
   "name": "csgoia",
-  "version": "0.0.1",
-  "description": "TODO",
+  "version": "0.1.0",
+  "description": "A browser extension to provide a better CS:GO inventory experience.",
   "devDependencies": {
     "web-ext": "^6.6.0"
   },
@@ -14,6 +14,7 @@
   },
   "keywords": [
     "csgo",
+    "browser-extension",
     "csgo-inventory"
   ],
   "author": "PryosCode",

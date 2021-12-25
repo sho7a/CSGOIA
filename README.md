@@ -2,13 +2,12 @@
 
 ## Features
 
-<img align="right" alt="Test" width="200px" src="https://raw.githubusercontent.com/PryosCode/CSGOIA/master/img/screenshot.png">
+<a href="https://github.com/PryosCode/CSGOIA/blob/master/img/screenshot.png"><img align="right" alt="Test" width="300px" src="https://raw.githubusercontent.com/PryosCode/CSGOIA/master/img/screenshot.png"></a>
 
 - [x] Float
 - [x] Seed
 - [x] Inspect on Server
 - [ ] More Coming Soon
-
 
 ## License
 

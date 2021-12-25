@@ -1,6 +1,14 @@
 # CS:GO Inventory Assistant
 
-_TODO_
+## Features
+
+<img align="right" alt="Test" width="200px" src="https://raw.githubusercontent.com/PryosCode/CSGOIA/master/img/screenshot.png">
+
+- [x] Float
+- [x] Seed
+- [x] Inspect on Server
+- [ ] More Coming Soon
+
 
 ## License
 

@@ -1,2 +1,1 @@
-# CSGOIA
-CS:GO Inventory Assistant
+# CS:GO Inventory Assistant

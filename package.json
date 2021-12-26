@@ -1,27 +1,50 @@
 {
   "name": "csgoia",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A browser extension to provide a better CS:GO inventory experience.",
-  "devDependencies": {
-    "web-ext": "^6.6.0"
-  },
-  "scripts": {
-    "dev": "web-ext run --source-dir src -u https://steamcommunity.com/id/PryosCode/inventory#730",
-    "build": "web-ext build --source-dir src"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/PryosCode/CSGOIA.git"
-  },
   "keywords": [
     "csgo",
     "browser-extension",
     "csgo-inventory"
   ],
-  "author": "PryosCode",
+  "homepage": "https://github.com/PryosCode/CSGOIA",
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/PryosCode/CSGOIA/issues"
+  "private": true,
+  "author": {
+     "name": "PryosCode",
+     "email": "info@pryoscode.net",
+     "url": "https://www.pryoscode.net/"
   },
-  "homepage": "https://github.com/PryosCode/CSGOIA"
+  "bugs": {
+    "url": "https://github.com/PryosCode/CSGOIA/issues",
+    "email": "info@pryoscode.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PryosCode/CSGOIA.git"
+  },
+  "scripts": {
+    "dev:bundle": "webpack watch --mode=development",
+    "dev:browser": "web-ext run --source-dir build -u https://steamcommunity.com/id/PryosCode/inventory#730",
+    "dev": "concurrently \"yarn dev:bundle\" \"yarn dev:browser\"",
+    "build:bundle": "webpack --mode=production",
+    "build:pack": "web-ext build --overwrite-dest --source-dir build",
+    "build": "yarn build:bundle && yarn build:pack"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-typescript": "^7.16.5",
+    "@babel/register": "^7.16.5",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "babel-loader": "^8.2.3",
+    "concurrently": "^6.5.1",
+    "eslint": "^8.5.0",
+    "eslint-webpack-plugin": "^3.1.1",
+    "typescript": "^4.5.4",
+    "web-ext": "^6.6.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
 }

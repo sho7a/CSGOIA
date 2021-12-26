@@ -8,6 +8,9 @@ A browser extension to provide a better CS:GO inventory experience.
 
 - [x] Float
 - [x] Seed
+- [x] Phase
+- [x] Fade
+- [x] Inspect in Browser
 - [x] Inspect on Server
 - [ ] More Coming Soon
 

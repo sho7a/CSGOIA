@@ -1,6 +1,6 @@
 {
   "name": "csgoia",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A browser extension to provide a better CS:GO inventory experience.",
   "devDependencies": {
     "web-ext": "^6.6.0"

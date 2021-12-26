@@ -34,14 +34,14 @@ function details(item) {
     game.href = "#";
     game.addEventListener("click", (event) => {
         event.preventDefault();
-        fetch('https://api.csgoskins.gg/tests/link', {
-            method: 'POST',
+        fetch("https://api.csgoskins.gg/tests/link", {
+            method: "POST",
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                "Accept": "application/json",
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                link: actions.firstChild.href,
+                link: actions.firstChild.href
             }),
         })
         .then((res) => res.json())

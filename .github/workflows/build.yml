@@ -28,7 +28,7 @@ jobs:
     - name: Upload GitHub
       uses: actions/upload-artifact@v2
       with:
-        name: CSGOIA
+        name: CSGOIA-v${{ env.VERSION }}
         path: web-ext-artifacts/cs_go_inventory_assistant-${{ env.VERSION }}.zip
         if-no-files-found: error
 

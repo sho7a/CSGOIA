@@ -22,13 +22,18 @@ jobs:
     - name: Build
       run: |
         echo VERSION=$(node -p "require('./package.json').version") >> $GITHUB_ENV
+        npm install
         npm run build
+
+    - name: Upload GitHub
+      uses: actions/upload-artifact@v2
+      with:
+        name: CSGOIA
+        path: web-ext-artifacts/cs_go_inventory_assistant-${{ env.VERSION }}.zip
 
     - name: Release GitHub
       uses: softprops/action-gh-release@v1
       with:
-        files: web-ext-artifacts/*.zip
         tag_name: v${{ env.VERSION }}
-        fail_on_unmatched_files: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

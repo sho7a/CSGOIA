@@ -2,6 +2,7 @@ import path from "path";
 import webpack from "webpack";
 import Plugin from "./src/plugin";
 import ESLintWebpackPlugin from "eslint-webpack-plugin";
+import CopyWebpackPlugin from "copy-webpack-plugin";
 
 const config: webpack.Configuration = {
   entry: {
@@ -25,6 +26,11 @@ const config: webpack.Configuration = {
   plugins: [
     new ESLintWebpackPlugin({
       extensions: [ "js", "ts" ]
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{
+        context: path.resolve(__dirname, "res"), from: "logo.png", to: "."
+      }]
     }),
     new Plugin()
   ]

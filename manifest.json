@@ -1,16 +1,26 @@
 {
-  "manifest_version": 2,
-  "name": "CS:GO Inventory Assistant",
-  "description": "A browser extension to provide a better CS:GO inventory experience.",
-  "permissions": [
-    "*://api.csgofloat.com/*",
-    "*://cs.deals/API/*",
-    "*://api.csgoskins.gg/*"
-  ],
+  "author": "PryosCode",
   "content_scripts": [
     {
       "matches": [ "*://steamcommunity.com/*/inventory*" ],
       "js": [ "main.js" ]
     }
-  ]
+  ],
+  "description": "A browser extension to provide a better CS:GO inventory experience.",
+  "developer": {
+    "name": "PryosCode",
+    "url": "https://pryoscode.net"
+  },
+  "homepage_url": "https://github.com/PryosCode/CSGOIA",
+  "icons": {
+    "128": "logo.png"
+  },
+  "manifest_version": 2,
+  "name": "CS:GO Inventory Assistant",
+  "permissions": [
+    "*://api.csgofloat.com/*",
+    "*://cs.deals/API/*",
+    "*://api.csgoskins.gg/*"
+  ],
+  "short_name": "CSGOIA"
 }

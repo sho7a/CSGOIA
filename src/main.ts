@@ -1,19 +1,17 @@
 import { getFade, getPhase } from "./utils";
 
-window.addEventListener("load", () => {
-  const interval = setInterval(() => {
-    if (document.getElementById("iteminfo1_item_name").innerText !== "") {
-      clearInterval(interval);
-      call();
-    }
-  }, 100);
-});
-
 document.addEventListener("click", (event: MouseEvent) => {
   if (event.target instanceof Element && event.target.classList.contains("inventory_item_link")) {
     call();
   }
 });
+
+const interval = setInterval(() => {
+  if (document.getElementById("iteminfo1_item_name").innerText !== "") {
+    clearInterval(interval);
+    call();
+  }
+}, 100);
 
 function call() {
   if (document.getElementById("inventory_link_730").classList.contains("active")) {

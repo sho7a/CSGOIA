@@ -1,11 +1,5 @@
 {
   "author": "PryosCode",
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "csgoia@pryoscode.net",
-      "strict_min_version": "42.0"
-    }
-  },
   "content_scripts": [
     {
       "matches": [ "*://steamcommunity.com/*/inventory*" ],

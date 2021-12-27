@@ -21,7 +21,9 @@ A browser extension to provide a better CS:GO inventory experience.
 
 ## Installation
 
-_Coming Soon_
+~~Chrome~~
+
+[Firefox](https://addons.mozilla.org/en-US/firefox/addon/csgo-inventory-assistant/)
 
 ## Build
 

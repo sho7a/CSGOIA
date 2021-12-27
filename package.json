@@ -1,6 +1,6 @@
 {
   "name": "csgoia",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A browser extension to provide a better CS:GO inventory experience.",
   "keywords": [
     "csgo",
@@ -25,7 +25,7 @@
   },
   "scripts": {
     "dev:bundle": "webpack watch --mode=development",
-    "dev:browser": "web-ext run --source-dir build -u https://steamcommunity.com/id/PryosCode/inventory#730",
+    "dev:browser": "wait-on build && web-ext run --source-dir build -u https://steamcommunity.com/id/PryosCode/inventory#730",
     "dev": "concurrently \"yarn dev:bundle\" \"yarn dev:browser\"",
     "build:bundle": "webpack --mode=production",
     "build:pack": "web-ext build --overwrite-dest --source-dir build",
@@ -44,6 +44,7 @@
     "eslint": "^8.5.0",
     "eslint-webpack-plugin": "^3.1.1",
     "typescript": "^4.5.4",
+    "wait-on": "^6.0.0",
     "web-ext": "^6.6.0",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1"

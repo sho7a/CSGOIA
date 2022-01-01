@@ -1,11 +1,15 @@
 import { BAYONET, BOWIE, BUTTERFLY, CLASSIC, FALCHION, FLIP, GLOCK, GUT, HUNTSMAN, KARAMBIT, M9, NAVAJA, NOMAD, PARACORD, PHASES, SHADOWS, SKELETON, STILETTO, SURVIVAL, TALON, URSUS } from "./definitions";
 
-export function getPhase(item_name, paintindex) {
-  if (item_name !== "Doppler" && item_name !== "Gamma Doppler") return "";
-  return " (" + PHASES[paintindex] + ")";
+export function getRank(low_rank: number) {
+  return low_rank === undefined ? "" : ` (#${low_rank})`;
 }
 
-export function getFade(item_name, weapon_type, paintseed) {
+export function getPhase(item_name: string, paintindex: number) {
+  if (item_name !== "Doppler" && item_name !== "Gamma Doppler") return "";
+  return ` (${PHASES[paintindex]})`;
+}
+
+export function getFade(item_name: string, weapon_type: string, paintseed: number) {
   if (item_name !== "Fade") return "";
   let fade: number;
   switch (weapon_type) {
@@ -30,5 +34,5 @@ export function getFade(item_name, weapon_type, paintseed) {
     case "Falchion Knife": fade = FALCHION[paintseed]; break;
     case "Glock-18": fade = GLOCK[paintseed]; break;
   }
-  return fade === undefined ? "" : " (" + fade + "%)";
+  return fade === undefined ? "" : ` (${fade}%)`;
 }

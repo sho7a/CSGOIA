@@ -1,7 +1,8 @@
-import { getFade, getPhase } from "./utils";
+import { getFade, getPhase, getRank } from "./utils";
 
 document.addEventListener("click", (event: MouseEvent) => {
-  if (event.target instanceof Element && event.target.classList.contains("inventory_item_link")) {
+  if (event.target instanceof Element &&
+      event.target.classList.contains("inventory_item_link")) {
     call();
   }
 });
@@ -25,25 +26,25 @@ function call() {
   }
 }
 
-function details(item) {
+function details(item: HTMLElement) {
   const description = item.getElementsByClassName("item_desc_description")[0];
   const text = description.children[3];
   const actions = description.children[4];
+  const inspect = (<HTMLLinkElement> actions.firstChild).href;
 
-  fetch("https://api.csgofloat.com/?url=" + actions.firstChild.href).then((res) => res.json()).then((res) => {
+  fetch("https://api.csgofloat.com/?url=" + inspect).then((res) => res.json()).then((res) => {
     const float = document.createElement("div");
-    float.innerText = "Float: " + res.iteminfo.floatvalue;
+    float.innerText = "Float: " + res.iteminfo.floatvalue + getRank(res.iteminfo.low_rank);
     text.insertBefore(float, text.children[1]);
     const seed = document.createElement("div");
     seed.innerText = "Seed: " + res.iteminfo.paintseed +  getPhase(res.iteminfo.item_name, res.iteminfo.paintindex) + getFade(res.iteminfo.item_name, res.iteminfo.weapon_type, res.iteminfo.paintseed);
     text.insertBefore(seed, text.children[2]);
   });
 
-  const browser = actions.firstChild.cloneNode(true);
-  browser.firstChild.innerText = "Inspect in Browser...";
-  browser.href = "#";
-  browser.addEventListener("click", (event: MouseEvent) => {
-    event.preventDefault();
+  const browser = <HTMLLinkElement> actions.firstChild.cloneNode(true);
+  (<HTMLElement> browser.firstChild).innerText = "Inspect in Browser...";
+  browser.href = "javascript:;";
+  browser.addEventListener("click", () => {
     fetch("https://cs.deals/API/IScreenshots/QueueScreenshots/v1", {
       method: "POST",
       headers: {
@@ -51,9 +52,7 @@ function details(item) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        links: [
-          actions.firstChild.href
-        ]
+        links: [ inspect ]
       })
     }).then((res) => res.json()).then((res) => {
       const id = res.response.requests[Object.keys(res.response.requests)[0]].requestId;
@@ -82,11 +81,10 @@ function details(item) {
   actions.appendChild(document.createElement("br"));
   actions.appendChild(browser);
 
-  const game = actions.firstChild.cloneNode(true);
-  game.firstChild.innerText = "Inspect on Server...";
-  game.href = "#";
-  game.addEventListener("click", (event) => {
-    event.preventDefault();
+  const server = <HTMLLinkElement> actions.firstChild.cloneNode(true);
+  (<HTMLElement> server.firstChild).innerText = "Inspect on Server...";
+  server.href = "javascript:;";
+  server.addEventListener("click", () => {
     fetch("https://api.csgoskins.gg/tests/link", {
       method: "POST",
       headers: {
@@ -94,7 +92,7 @@ function details(item) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        link: actions.firstChild.href
+        link: inspect
       })
     }).then((res) => res.json()).then((res) => {
       if (res.needs_to_connect) {
@@ -103,5 +101,5 @@ function details(item) {
     });
   });
   actions.appendChild(document.createElement("br"));
-  actions.appendChild(game);
+  actions.appendChild(server);
 }

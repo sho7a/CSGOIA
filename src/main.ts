@@ -30,15 +30,18 @@ function details(item: HTMLElement) {
   const description = item.getElementsByClassName("item_desc_description")[0];
   const text = description.children[3];
   const actions = description.children[4];
+  if (actions.firstChild === null) return;
   const inspect = (<HTMLLinkElement> actions.firstChild).href;
 
   browser.runtime.sendMessage({ url: "https://api.csgofloat.com/?url=" + inspect }).then((res) => {
-    const float = document.createElement("div");
-    float.innerText = "Float: " + res.iteminfo.floatvalue + getRank(res.iteminfo.low_rank);
-    text.insertBefore(float, text.children[1]);
-    const seed = document.createElement("div");
-    seed.innerText = "Seed: " + res.iteminfo.paintseed +  getPhase(res.iteminfo.item_name, res.iteminfo.paintindex) + getFade(res.iteminfo.item_name, res.iteminfo.weapon_type, res.iteminfo.paintseed);
-    text.insertBefore(seed, text.children[2]);
+    if (res.iteminfo.paintseed !== 0) {
+      const float = document.createElement("div");
+      float.innerText = "Float: " + res.iteminfo.floatvalue + getRank(res.iteminfo.low_rank);
+      text.insertBefore(float, text.children[1]);
+      const seed = document.createElement("div");
+      seed.innerText = "Seed: " + res.iteminfo.paintseed +  getPhase(res.iteminfo.item_name, res.iteminfo.paintindex) + getFade(res.iteminfo.item_name, res.iteminfo.weapon_type, res.iteminfo.paintseed);
+      text.insertBefore(seed, text.children[2]);
+    }
   });
 
   const screenshot = <HTMLLinkElement> actions.firstChild.cloneNode(true);

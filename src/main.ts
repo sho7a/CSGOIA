@@ -1,8 +1,8 @@
+import browser from "webextension-polyfill";
 import { getFade, getPhase, getRank } from "./utils";
 
 document.addEventListener("click", (event: MouseEvent) => {
-  if (event.target instanceof Element &&
-      event.target.classList.contains("inventory_item_link")) {
+  if (event.target instanceof Element && event.target.classList.contains("inventory_item_link")) {
     call();
   }
 });
@@ -32,7 +32,7 @@ function details(item: HTMLElement) {
   const actions = description.children[4];
   const inspect = (<HTMLLinkElement> actions.firstChild).href;
 
-  fetch("https://api.csgofloat.com/?url=" + inspect).then((res) => res.json()).then((res) => {
+  browser.runtime.sendMessage({ url: "https://api.csgofloat.com/?url=" + inspect }).then((res) => {
     const float = document.createElement("div");
     float.innerText = "Float: " + res.iteminfo.floatvalue + getRank(res.iteminfo.low_rank);
     text.insertBefore(float, text.children[1]);
@@ -41,11 +41,11 @@ function details(item: HTMLElement) {
     text.insertBefore(seed, text.children[2]);
   });
 
-  const browser = <HTMLLinkElement> actions.firstChild.cloneNode(true);
-  (<HTMLElement> browser.firstChild).innerText = "Inspect in Browser...";
-  browser.href = "javascript:;";
-  browser.addEventListener("click", () => {
-    fetch("https://cs.deals/API/IScreenshots/QueueScreenshots/v1", {
+  const screenshot = <HTMLLinkElement> actions.firstChild.cloneNode(true);
+  (<HTMLElement> screenshot.firstChild).innerText = "Inspect in Browser...";
+  screenshot.href = "javascript:;";
+  screenshot.addEventListener("click", () => {
+    browser.runtime.sendMessage({ url: "https://cs.deals/API/IScreenshots/QueueScreenshots/v1", options: {
       method: "POST",
       headers: {
         "Accept": "application/json",
@@ -54,10 +54,10 @@ function details(item: HTMLElement) {
       body: JSON.stringify({
         links: [ inspect ]
       })
-    }).then((res) => res.json()).then((res) => {
+    }}).then((res) => {
       const id = res.response.requests[Object.keys(res.response.requests)[0]].requestId;
       const interval = setInterval(() => {
-        fetch("https://cs.deals/API/IScreenshots/GetByRequestIDs/v1", {
+        browser.runtime.sendMessage({ url: "https://cs.deals/API/IScreenshots/GetByRequestIDs/v1", options: {
           method: "POST",
           headers: {
             "Accept": "application/json",
@@ -68,7 +68,7 @@ function details(item: HTMLElement) {
               id
             ]
           })
-        }).then((res) => res.json()).then((res) => {
+        }}).then((res) => {
           const r = res.response[id];
           if (r.status === 2) {
             window.open("https://cs.deals/csgoScreenshot/" + window.btoa(r.images[0].id) + ".jpg", "_blank");
@@ -79,13 +79,13 @@ function details(item: HTMLElement) {
     });
   });
   actions.appendChild(document.createElement("br"));
-  actions.appendChild(browser);
+  actions.appendChild(screenshot);
 
   const server = <HTMLLinkElement> actions.firstChild.cloneNode(true);
   (<HTMLElement> server.firstChild).innerText = "Inspect on Server...";
   server.href = "javascript:;";
   server.addEventListener("click", () => {
-    fetch("https://api.csgoskins.gg/tests/link", {
+    browser.runtime.sendMessage({ url: "https://api.csgoskins.gg/tests/link", options: {
       method: "POST",
       headers: {
         "Accept": "application/json",
@@ -94,7 +94,7 @@ function details(item: HTMLElement) {
       body: JSON.stringify({
         link: inspect
       })
-    }).then((res) => res.json()).then((res) => {
+    }}).then((res) => {
       if (res.needs_to_connect) {
         location.href = res.connect_to_url;
       }

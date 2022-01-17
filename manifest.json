@@ -1,5 +1,11 @@
 {
   "author": "PryosCode",
+  "background": {
+    "scripts": [
+      "browser-polyfill.js",
+      "background.js"
+    ]
+  },
   "content_scripts": [
     {
       "matches": [ "*://steamcommunity.com/*/inventory*" ],

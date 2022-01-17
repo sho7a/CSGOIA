@@ -28,9 +28,11 @@ const config: webpack.Configuration = {
       extensions: [ "js", "ts" ]
     }),
     new CopyWebpackPlugin({
-      patterns: [{
-        context: path.resolve(__dirname, "res"), from: "logo.png", to: "."
-      }]
+      patterns: [
+        { context: path.resolve(__dirname, "res"), from: "logo.png", to: "." },
+        { context: path.resolve(__dirname, "node_modules", "webextension-polyfill", "dist"), from: "browser-polyfill.js", to: "." },
+        { context: path.resolve(__dirname, "src"), from: "background.js", to: "." }
+      ]
     }),
     new Plugin()
   ]

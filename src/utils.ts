@@ -1,7 +1,7 @@
 import { BAYONET, BOWIE, BUTTERFLY, CLASSIC, FALCHION, FLIP, GLOCK, GUT, HUNTSMAN, KARAMBIT, M9, NAVAJA, NOMAD, PARACORD, PHASES, SHADOWS, SKELETON, STILETTO, SURVIVAL, TALON, URSUS } from "./definitions";
 
-export function getRank(low_rank: number) {
-  return low_rank === undefined ? "" : ` (#${low_rank})`;
+export function getRank(low_rank: number, high_rank: number) {
+  return low_rank === undefined ? high_rank === undefined ? "" : ` (#${high_rank})` : ` (#${low_rank})`;
 }
 
 export function getPhase(item_name: string, paintindex: number) {

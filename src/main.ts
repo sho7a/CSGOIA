@@ -36,7 +36,7 @@ function details(item: HTMLElement) {
   browser.runtime.sendMessage({ url: "https://api.csgofloat.com/?url=" + inspect }).then((res) => {
     if (res.iteminfo.paintseed !== 0) {
       const float = document.createElement("div");
-      float.innerText = "Float: " + res.iteminfo.floatvalue + getRank(res.iteminfo.low_rank);
+      float.innerText = "Float: " + res.iteminfo.floatvalue + getRank(res.iteminfo.low_rank, res.iteminfo.high_rank);
       text.insertBefore(float, text.children[1]);
       const seed = document.createElement("div");
       seed.innerText = "Seed: " + res.iteminfo.paintseed +  getPhase(res.iteminfo.item_name, res.iteminfo.paintindex) + getFade(res.iteminfo.item_name, res.iteminfo.weapon_type, res.iteminfo.paintseed);

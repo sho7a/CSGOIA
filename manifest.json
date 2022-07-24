@@ -1,5 +1,5 @@
 {
-  "author": "PryosCode",
+  "author": "shota",
   "background": {
     "scripts": [
       "browser-polyfill.js",
@@ -14,10 +14,10 @@
   ],
   "description": "A browser extension to provide a better CS:GO inventory experience.",
   "developer": {
-    "name": "PryosCode",
-    "url": "https://pryoscode.net"
+    "name": "shota",
+    "url": "https://shota.dev"
   },
-  "homepage_url": "https://github.com/PryosCode/CSGOIA",
+  "homepage_url": "https://github.com/sho7a/CSGOIA",
   "icons": {
     "128": "logo.png"
   },

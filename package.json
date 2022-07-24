@@ -1,31 +1,31 @@
 {
   "name": "csgoia",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "A browser extension to provide a better CS:GO inventory experience.",
   "keywords": [
     "csgo",
     "browser-extension",
     "csgo-inventory"
   ],
-  "homepage": "https://github.com/PryosCode/CSGOIA",
+  "homepage": "https://github.com/sho7a/CSGOIA",
   "license": "Apache-2.0",
   "private": true,
   "author": {
-    "name": "PryosCode",
-    "email": "info@pryoscode.net",
-    "url": "https://pryoscode.net"
+    "name": "shota",
+    "email": "contact@shota.dev",
+    "url": "https://shota.dev"
   },
   "bugs": {
-    "url": "https://github.com/PryosCode/CSGOIA/issues",
-    "email": "info@pryoscode.net"
+    "url": "https://github.com/sho7a/CSGOIA/issues",
+    "email": "contact@shota.dev"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/PryosCode/CSGOIA.git"
+    "url": "https://github.com/sho7a/CSGOIA.git"
   },
   "scripts": {
     "dev:bundle": "webpack watch --mode=development",
-    "dev:browser": "wait-on build && web-ext run -t chromium --source-dir build -u https://steamcommunity.com/id/PryosCode/inventory#730",
+    "dev:browser": "wait-on build && web-ext run -t chromium --source-dir build -u https://steamcommunity.com/id/sho7a/inventory#730",
     "dev": "concurrently \"yarn dev:bundle\" \"yarn dev:browser\"",
     "build:bundle": "webpack --mode=production",
     "build:pack": "web-ext build --overwrite-dest --source-dir build",

@@ -8,19 +8,19 @@ document.addEventListener("click", (event: MouseEvent) => {
 });
 
 const interval = setInterval(() => {
-  if (document.getElementById("iteminfo1_item_name").innerText !== "") {
+  if (document.getElementById("iteminfo1_item_name")?.innerText !== "") {
     clearInterval(interval);
     call();
   }
 }, 100);
 
 function call() {
-  if (document.getElementById("inventory_link_730").classList.contains("active")) {
+  if (document.getElementById("inventory_link_730")?.classList.contains("active")) {
     const item0 = document.getElementById("iteminfo0");
     const item1 = document.getElementById("iteminfo1");
-    if (item0.style.zIndex === "1") {
+    if (item0?.style.zIndex === "1") {
       details(item0);
-    } else {
+    } else if (item1) {
       details(item1);
     }
   }

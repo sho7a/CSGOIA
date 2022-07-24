@@ -30,6 +30,7 @@ A browser extension to provide a better CS:GO inventory experience.
 
 ```bash
 $ git clone https://github.com/sho7a/CSGOIA.git
+$ cd CSGOIA
 $ yarn install
 $ yarn build
 ```

@@ -25,7 +25,7 @@
   },
   "scripts": {
     "dev:bundle": "webpack watch --mode=development",
-    "dev:browser": "wait-on build && web-ext run -t chromium --source-dir build -u https://steamcommunity.com/id/sho7a/inventory#730",
+    "dev:browser": "wait-on build && web-ext run -t chromium --source-dir build -u https://steamcommunity.com/id/ohnePixel/inventory/#730",
     "dev": "concurrently \"yarn dev:bundle\" \"yarn dev:browser\"",
     "build:bundle": "webpack --mode=production",
     "build:pack": "web-ext build --overwrite-dest --source-dir build",

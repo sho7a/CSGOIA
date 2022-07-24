@@ -48,38 +48,7 @@ function details(item: HTMLElement) {
   (<HTMLElement> screenshot.firstChild).innerText = "Inspect in Browser...";
   screenshot.href = "javascript:;";
   screenshot.addEventListener("click", () => {
-    browser.runtime.sendMessage({ url: "https://cs.deals/API/IScreenshots/QueueScreenshots/v1", options: {
-      method: "POST",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        links: [ inspect ]
-      })
-    }}).then((res) => {
-      const id = res.response.requests[Object.keys(res.response.requests)[0]].requestId;
-      const interval = setInterval(() => {
-        browser.runtime.sendMessage({ url: "https://cs.deals/API/IScreenshots/GetByRequestIDs/v1", options: {
-          method: "POST",
-          headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            requestIds: [
-              id
-            ]
-          })
-        }}).then((res) => {
-          const r = res.response[id];
-          if (r.status === 2) {
-            window.open("https://cs.deals/csgoScreenshot/" + window.btoa(r.images[0].id) + ".jpg", "_blank");
-            clearInterval(interval);
-          }
-        });
-      }, 1000);
-    });
+    window.open("https://market.swap.gg/screenshot?inspectLink=" + inspect, "_blank");
   });
   actions.appendChild(document.createElement("br"));
   actions.appendChild(screenshot);

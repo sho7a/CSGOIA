@@ -25,7 +25,6 @@
   "name": "CS:GO Inventory Assistant",
   "permissions": [
     "*://api.csgofloat.com/*",
-    "*://cs.deals/API/*",
     "*://api.csgoskins.gg/*"
   ],
   "short_name": "CSGOIA"

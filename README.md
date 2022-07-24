@@ -4,13 +4,13 @@
   <a href="https://github.com/sho7a/CSGOIA/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/sho7a/CSGOIA?label=License"></a>
 </p>
 
-# <a href="https://github.com/sho7a/CSGOIA/blob/master/res/logo.png"><img src="https://github.com/sho7a/CSGOIA/raw/master/res/logo.png" alt="Logo" width="30" height="auto"></a> CS:GO Inventory Assistant
+# <a href="https://github.com/sho7a/CSGOIA/blob/master/assets/logo.png"><img src="https://github.com/sho7a/CSGOIA/raw/master/assets/logo.png" alt="Logo" width="30" height="auto"></a> CS:GO Inventory Assistant
 
 A browser extension to provide a better CS:GO inventory experience.
 
 ## Features
 
-<a href="https://github.com/sho7a/CSGOIA/blob/master/res/screenshot.png"><img align="right" alt="Example" width="300px" src="https://raw.githubusercontent.com/sho7a/CSGOIA/master/res/screenshot.png"></a>
+<a href="https://github.com/sho7a/CSGOIA/blob/master/assets/screenshot.png"><img align="right" alt="Example" width="300px" src="https://raw.githubusercontent.com/sho7a/CSGOIA/master/assets/screenshot.png"></a>
 
 - [x] Float
 - [x] Rank

@@ -29,7 +29,7 @@ const config: webpack.Configuration = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { context: path.resolve(__dirname, "res"), from: "logo.png", to: "." },
+        { context: path.resolve(__dirname, "assets"), from: "logo.png", to: "." },
         { context: path.resolve(__dirname, "node_modules", "webextension-polyfill", "dist"), from: "browser-polyfill.js", to: "." },
         { context: path.resolve(__dirname, "src"), from: "background.js", to: "." }
       ]
